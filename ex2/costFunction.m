@@ -21,16 +21,6 @@ grad = zeros(size(theta));
 %
 
 
-%for i=1:m
-%    J=J-y(i)*log(sigmoid(theta(1)*X(i,1)+theta(2)*X(i,2)+theta(3)*X(i,3)))-(1-y(i))*log(1-sigmoid(theta(1)*X(i,1)+theta(2)*X(i,2)+theta(3)*X(i,3)));
-%    endfor
-%J=J/m;
-%for i=1:size(theta)
-%  for j=1:m
-%    grad(i)=grad(i)+ X(j,i)*(sigmoid(theta(1)*X(j,1)+theta(2)*X(j,2)+theta(3)*X(j,3))-y(j));
-%  endfor
-%    grad(i)=grad(i)/m;
-%endfor  
 
 for i=1:m
     J=J-y(i)*log(sigmoid(X(i,:)*theta))-(1-y(i))*log(1-sigmoid(X(i,:)*theta));
@@ -45,5 +35,6 @@ for i=1:size(theta)
 endfor  
 
 % =============================================================
-
 end
+% It is possible to vectorize the code to compute as request. 
+% However, I still keep the code with for-loop to remind me how hard I was try to come up the sollution to the problem. 
