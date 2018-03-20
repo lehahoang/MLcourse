@@ -10,8 +10,8 @@ g = zeros(size(z));
 %               vector or scalar).
 
     
-
-if (isempty(z)) %Check z=empty means that z is not a matrix
+% Return true if z is a scalar or a vector, or false if z is actually a matrix (with m*n size of two dimensions)
+if (isempty(z)) 
   for i=1:size(z)
      g(i)=1/(1+exp(-z(i)));
   endfor   
@@ -23,9 +23,8 @@ else
     endfor
   endfor
 endif
-  
-
-
 % =============================================================
 
 end
+% The code to compute sigmoid function from the author of the course contains one line of code!!
+% Again, I keep this to remind me later that how badly I came up sollution for the problem in these days.
