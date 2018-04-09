@@ -64,6 +64,8 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 %=========Computing the hypothesis function
+% We need to add 1's to the first column of a_1 due to the fact that we have to set x0=1 to fit
+% our model: x0w0 +x1w1 +... xNwN
 a_1=[ones(m,1) X]; % 5000*401
 z_2= a_1*Theta1';  % 5000*25 
 a_2= [ones(m,1) sigmoid(z_2)]; % 5000 *26
