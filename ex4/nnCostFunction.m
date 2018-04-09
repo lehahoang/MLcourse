@@ -66,6 +66,7 @@ Theta2_grad = zeros(size(Theta2));
 %=========Computing the hypothesis function
 % We need to add 1's to the first column of a_1 due to the fact that we have to set x0=1 to fit
 % our model: x0w0 +x1w1 +... xNwN
+% In final layer, do not add 1 to the hypothesis.
 a_1=[ones(m,1) X]; % 5000*401
 z_2= a_1*Theta1';  % 5000*25 
 a_2= [ones(m,1) sigmoid(z_2)]; % 5000 *26
@@ -81,7 +82,7 @@ penalty=(lambda/(2*m))*(sum(sum(Theta1(:,2:end).^2,2))...
  
 %==========Computing the cost function
 % Mapping the value of y, which is between 1..K, to the value in the row.
-% If y(5)=7, it means that 5 is equal to the 5th training set, 3 is that value 
+% If y(5)=7, it means that 5 is equal to the 5th training set, 7 is that value 
 % of output. Mapping this case study, we set third element of 5th row to 1
 % , whereas the rest of elements will stay 0's.
 % Size of Y is 5000*10
@@ -93,11 +94,7 @@ for i=1:m
 endfor %5000*10
 J=(1/m)*sum(sum((-Y).*log(hypo)-(1-Y).*log(1-hypo),2))+penalty;
 
-% Mapping the value of y, which is between 1..K, to the value in the row.
-% If y(5)=7, it means that 5 is equal to the 5th training set, 3 is that value 
-% of output. Mapping this case study, we set third element of 5th row to 1
-% , whereas the rest of elements will stay 0's.
-% Size of Y is 5000*10
+
 
 
 
